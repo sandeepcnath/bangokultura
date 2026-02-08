@@ -1,0 +1,176 @@
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ProductCard } from '../components/ProductCard';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const nailProducts = [
+  { 
+    id: 101, 
+    name: 'Midnight Mani Kit', 
+    price: 34, 
+    image: '/product_mani_kit.png', 
+    category: 'nail',
+    description: 'Complete nail art kit with 6 premium polishes and essential tools.'
+  },
+  { 
+    id: 102, 
+    name: 'Gel Top Coat Set', 
+    price: 24, 
+    image: '/product_gel_set.png', 
+    category: 'nail',
+    description: 'Professional-grade gel top coat for salon-quality finish at home.'
+  },
+  { 
+    id: 103, 
+    name: 'Coral Crush Polish', 
+    price: 18, 
+    image: '/nail_polish.png', 
+    category: 'nail',
+    description: 'Vibrant coral shade with long-lasting, chip-resistant formula.'
+  },
+  { 
+    id: 104, 
+    name: 'Nail Art Brush Set', 
+    price: 22, 
+    image: '/product_mani_kit.png', 
+    category: 'nail',
+    description: 'Precision brushes for detailed nail art and designs.'
+  },
+  { 
+    id: 105, 
+    name: 'Cuticle Oil Trio', 
+    price: 28, 
+    image: '/product_roller.png', 
+    category: 'nail',
+    description: 'Nourishing oils in three scents: lavender, rose, and vanilla.'
+  },
+  { 
+    id: 106, 
+    name: 'Nail Dryer Lamp', 
+    price: 45, 
+    image: '/product_cube.png', 
+    category: 'nail',
+    description: 'LED UV lamp for quick and even gel polish curing.'
+  },
+];
+
+export function NailArtPage() {
+  const heroRef = useRef<HTMLElement>(null);
+  const productsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Hero animation
+      const heroContent = heroRef.current?.querySelector('.hero-content');
+      if (heroContent) {
+        gsap.fromTo(heroContent,
+          { opacity: 0, y: 40 },
+          { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }
+        );
+      }
+
+      // Products animation
+      if (productsRef.current?.children) {
+        gsap.fromTo(Array.from(productsRef.current.children),
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: productsRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse'
+            }
+          }
+        );
+      }
+    });
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <div className="pt-20">
+      {/* Hero Section */}
+      <section ref={heroRef} className="bg-cloud py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="hero-content">
+              <span className="font-mono text-sm uppercase tracking-widest text-coral mb-4 block">
+                CATEGORY
+              </span>
+              <h1 className="font-display font-black uppercase text-ink mb-6" 
+                style={{ fontSize: 'clamp(48px, 8vw, 80px)', letterSpacing: '-0.02em' }}>
+                NAIL ART
+              </h1>
+              <p className="text-gray-600 text-lg mb-8 max-w-md leading-relaxed">
+                Salon-grade formulas, curated palettes, and the tools to make every detail intentional.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <span className="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-600">
+                  {nailProducts.length} Products
+                </span>
+                <span className="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-600">
+                  From $18
+                </span>
+              </div>
+            </div>
+            <div className="relative flex justify-center">
+              <div className="absolute inset-0 bg-coral rounded-full opacity-10 blur-3xl scale-75" />
+              <img 
+                src="/nail_polish.png" 
+                alt="Nail Art"
+                className="relative z-10 w-full max-w-sm"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Products Grid */}
+      <section className="py-16 md:py-24 bg-cloud">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex items-center justify-between mb-12">
+            <h2 className="font-display font-bold text-2xl text-ink">
+              All Products
+            </h2>
+            <div className="flex gap-2">
+              <select className="px-4 py-2 bg-white rounded-full border border-gray-200 text-sm focus:outline-none focus:border-coral">
+                <option>Sort by: Featured</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+                <option>Newest</option>
+              </select>
+            </div>
+          </div>
+          
+          <div ref={productsRef} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {nailProducts.map((product) => (
+              <ProductCard key={product.id} {...product} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Banner */}
+      <section className="py-16 bg-coral">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <h2 className="font-display font-bold text-3xl text-white mb-4">
+            New to Nail Art?
+          </h2>
+          <p className="text-white/90 mb-8 max-w-md mx-auto">
+            Check out our beginner-friendly starter kits and tutorials.
+          </p>
+          <button className="bg-white text-coral px-8 py-3 rounded-full font-medium hover:bg-ink hover:text-white transition-all duration-300">
+            View Starter Kits
+          </button>
+        </div>
+      </section>
+    </div>
+  );
+}
