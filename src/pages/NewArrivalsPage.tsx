@@ -6,14 +6,14 @@ import { ProductCard } from '../components/ProductCard';
 gsap.registerPlugin(ScrollTrigger);
 
 const allProducts = [
-  { id: 1, name: 'Midnight Mani Kit', price: 34, image: '/product_mani_kit.png', category: 'nail', description: 'Complete nail art kit with 6 premium polishes.' },
-  { id: 2, name: 'Lattafa Yara', price: 78, image: '/lattafa-yara.jpeg', category: 'perfume', description: 'Lattafa Yara, A sweet floral essence of feminine perfume' },
+  { id: 1, name: 'Embossed Crystals Nail Art', price: 34, image: '/product_mani_kit.jpeg', category: 'nail', description: 'Embossed Crystals Nail Art. A sparkling statement piece for your next big event.' },
+  { id: 2, name: 'Lattafa Yara', price: 85, image: '/lattafa-yara.jpeg', category: 'perfume', description: 'Lattafa Yara, A sweet floral essence of feminine perfume' },
   { id: 3, name: 'Rally Racer Collectible', price: 58, image: '/product_racer.png', category: 'toy', description: 'Vintage-inspired race car collectible.' },
   { id: 4, name: 'Gel Top Coat Set', price: 24, image: '/product_gel_set.png', category: 'nail', description: 'Professional-grade gel top coat.' },
-  { id: 5, name: 'Linen Musk Roller', price: 42, image: '/product_roller.png', category: 'perfume', description: 'Soft musk with clean linen notes.' },
-  { id: 6, name: 'Display Cube (Small)', price: 18, image: '/product_cube.png', category: 'toy', description: 'Clear acrylic display cube.' },
+  { id: 5, name: 'Linen Musk Roller', price: 42, image: '/product_roller.jpeg', category: 'perfume', description: 'Soft musk with clean linen notes.' },
+  { id: 6, name: 'Lavender and Cream Nail Set', price: 18, image: '/product_cube.jpeg', category: 'toy', description: 'Lavendar and Cream themed nail set with beautiful patterns.' },
   { id: 101, name: 'Nude nails with Glit and Floral pattern', price: 18, image: '/nail_polish.jpeg', category: 'nail', description: 'Nude nails with Glit and Floral pattern' },
-  { id: 201, name: 'Ameerat Al Arab', price: 85, image: '/ameerat-al-arab.jpeg', category: 'perfume', description: 'Luxurious evening fragrance.' },
+  { id: 201, name: 'Ameerat Al Arab', price: 65, image: '/ameerat-al-arab.jpeg', category: 'perfume', description: 'Luxurious evening fragrance.' },
   { id: 302, name: 'Classic Cruiser', price: 45, image: '/toy_car.png', category: 'toy', description: 'Retro-styled toy car.' },
 ];
 

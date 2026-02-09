@@ -7,44 +7,68 @@ gsap.registerPlugin(ScrollTrigger);
 
 const nailProducts = [
   { 
-    id: 102, 
-    name: 'Metallic blue nails', 
-    price: 24, 
-    image: '/product_gel_set.jpeg', 
+    id: 104, 
+    name: 'Embossed Crystals Nail Art', 
+    price: 25, 
+    image: '/product_mani_kit.jpeg', 
     category: 'nail',
-    description: 'Metallic blue nails'
+    description: 'Embossed Crystals Nail Art. A sparkling statement piece for your next big event.'
+  },
+  { 
+    id: 119, 
+    name: 'Sky Patterned Nails with Golden Accents', 
+    price: 25, 
+    image: '/sky-patterned-nails-golden-accents.jpg', 
+    category: 'nail',
+    description: 'Sky Patterned Nails with Golden Accents. A shimmering and elegant look with golden highlights.'
   },
   { 
     id: 103, 
     name: 'Nude nails with Glit and Floral pattern', 
-    price: 18, 
+    price: 20, 
     image: '/nail_polish.jpeg', 
     category: 'nail',
     description: 'Nude nails with Glit and Floral pattern.'
   },
   { 
-    id: 104, 
-    name: 'Nail Art Brush Set', 
-    price: 22, 
-    image: '/product_mani_kit.png', 
-    category: 'nail',
-    description: 'Precision brushes for detailed nail art and designs.'
-  },
-  { 
     id: 105, 
-    name: 'Cuticle Oil Trio', 
-    price: 28, 
-    image: '/product_roller.png', 
+    name: 'Dual tone floral pattern nails', 
+    price: 15, 
+    image: '/product_roller.jpeg', 
     category: 'nail',
-    description: 'Nourishing oils in three scents: lavender, rose, and vanilla.'
+    description: 'Cream and dark rose nails with floral pattern. A romantic and elegant choice for any occasion.'
   },
   { 
     id: 106, 
-    name: 'Nail Dryer Lamp', 
-    price: 45, 
-    image: '/product_cube.png', 
+    name: 'Lavender and Cream Nail Set', 
+    price: 20, 
+    image: '/product_cube.jpeg', 
     category: 'nail',
-    description: 'LED UV lamp for quick and even gel polish curing.'
+    description: 'Complete set with lavender and cream themed nails with beautiful patterns.'
+  },
+  { 
+    id: 107, 
+    name: 'Green and Cream Floral Nails', 
+    price: 20, 
+    image: '/green-and-cream-floral.jpeg', 
+    category: 'nail',
+    description: 'Green and Cream Floral Nails. A fresh and vibrant look with intricate floral designs.'
+  },
+  { 
+    id: 102, 
+    name: 'Metallic blue nails', 
+    price: 20, 
+    image: '/product_gel_set.jpeg', 
+    category: 'nail',
+    description: 'Metallic blue nails'
+  },
+  { 
+    id: 109, 
+    name: 'Professional Matte Pink Nails', 
+    price: 10, 
+    image: '/professional-matte-pink.jpeg', 
+    category: 'nail',
+    description: 'Professional Matte Pink Nails. A sophisticated and timeless look with a soft matte finish.'
   },
 ];
 

@@ -9,10 +9,17 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Products data
 const featuredProducts = [
-  { id: 1, name: 'Midnight Mani Kit', price: 34, image: '/product_mani_kit.png', category: 'nail' },
-  { id: 2, name: 'Lattafa Yara', price: 78, image: '/lattafa-yara.jpeg', category: 'perfume' },
-  { id: 3, name: 'Rally Racer Collectible', price: 58, image: '/product_racer.png', category: 'toy' },
-  { id: 4, name: 'Metallic Blue Nails', price: 24, image: '/product_gel_set.jpeg', category: 'nail' },
+  { id: 1, name: 'Embossed Crystals Nail Art', price: 25, image: '/product_mani_kit.jpeg', category: 'nail' },
+  { id: 2, name: 'Lattafa Yara', price: 85, image: '/lattafa-yara.jpeg', category: 'perfume' },
+  { id: 201, name: 'Ameerat Al Arab', price: 65, image: '/ameerat-al-arab.jpeg', category: 'perfume', description: 'Luxurious evening fragrance.' },
+  { 
+    id: 105, 
+    name: 'Dual tone floral pattern nails', 
+    price: 15, 
+    image: '/product_roller.jpeg', 
+    category: 'nail',
+    description: 'Cream and dark rose nails with floral pattern. A romantic and elegant choice for any occasion.'
+  },
 ];
 
 export function HomePage() {
@@ -251,11 +258,11 @@ export function HomePage() {
                 SHOP THE DROP
               </h2>
               <p className="text-white/90 text-lg mb-6 max-w-md">
-                Limited run. Clean lines, all-day comfort, and details that hold up close.
+                Embossed Crystals Nail Art. A sparkling statement piece for your next big event.
               </p>
-              <p className="font-display font-bold text-4xl mb-8">AED 129</p>
+              <p className="font-display font-bold text-4xl mb-8">AED 25</p>
               <button 
-                onClick={() => addToCart({ id: 99, name: 'Limited Drop Sneaker', price: 129, image: '/sneaker.png', category: 'featured' })}
+                onClick={() => addToCart({ id: 99, name: 'Embossed Crystals Nail Art', price: 25, image: '/sneaker.jpeg', category: 'featured' })}
                 className="bg-white text-coral px-8 py-4 rounded-full font-medium hover:bg-ink hover:text-white transition-all duration-300"
               >
                 Add to Cart
@@ -263,7 +270,7 @@ export function HomePage() {
             </div>
             <div className="relative">
               <img 
-                src="/sneaker.png" 
+                src="/sneaker.jpeg" 
                 alt="Featured Sneaker"
                 className="w-full max-w-lg mx-auto drop-shadow-2xl"
               />
@@ -398,7 +405,7 @@ export function HomePage() {
               </div>
               
               <div className="flex items-center gap-4 pt-4">
-                <a href="#" className="p-3 bg-gray-100 rounded-full hover:bg-coral hover:text-white transition-colors">
+                <a href="https://instagram.com/bangokultura" className="p-3 bg-gray-100 rounded-full hover:bg-coral hover:text-white transition-colors">
                   <Instagram className="w-5 h-5" />
                 </a>
               </div>

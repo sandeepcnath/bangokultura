@@ -24,19 +24,11 @@ const toyProducts = [
   },
   { 
     id: 303, 
-    name: 'Display Cube (Small)', 
+    name: 'Lavender and Cream Nail Set', 
     price: 18, 
-    image: '/product_cube.png', 
+    image: '/product_cube.jpeg', 
     category: 'toy',
-    description: 'Clear acrylic cube to showcase your collectibles.'
-  },
-  { 
-    id: 304, 
-    name: 'Display Cube (Large)', 
-    price: 32, 
-    image: '/product_cube.png', 
-    category: 'toy',
-    description: 'Larger display case for bigger collectibles and dioramas.'
+    description: 'Lavendar and Cream themed nail set with beautiful patterns.'
   },
   { 
     id: 305, 
@@ -45,14 +37,6 @@ const toyProducts = [
     image: '/toy_car.png', 
     category: 'toy',
     description: 'Detailed miniature garage with tools and accessories.'
-  },
-  { 
-    id: 306, 
-    name: 'Collector\'s Shelf', 
-    price: 120, 
-    image: '/product_cube.png', 
-    category: 'toy',
-    description: 'Wall-mounted shelf with LED lighting for your collection.'
   },
 ];
 
