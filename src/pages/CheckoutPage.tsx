@@ -290,7 +290,7 @@ export function CheckoutPage() {
                       disabled={isProcessing}
                       className="flex-1 btn-primary py-4 disabled:opacity-70"
                     >
-                      {isProcessing ? 'Processing...' : `Pay $${finalTotal}`}
+                      {isProcessing ? 'Processing...' : `Pay AED ${finalTotal}`}
                     </button>
                   </div>
                 </form>
@@ -318,7 +318,7 @@ export function CheckoutPage() {
                       <p className="font-medium text-ink text-sm">{item.name}</p>
                       <p className="text-gray-500 text-sm">Qty: {item.quantity}</p>
                     </div>
-                    <p className="font-medium text-ink">${item.price * item.quantity}</p>
+                    <p className="font-medium text-ink">AED {item.price * item.quantity}</p>
                   </div>
                 ))}
               </div>
@@ -327,19 +327,19 @@ export function CheckoutPage() {
               <div className="border-t pt-4 space-y-3">
                 <div className="flex justify-between text-sm">
                   <span className="text-gray-600">Subtotal</span>
-                  <span className="font-medium">${totalPrice}</span>
+                  <span className="font-medium">AED {totalPrice}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-gray-600">Shipping</span>
-                  <span className="font-medium">{shippingCost === 0 ? 'Free' : `$${shippingCost}`}</span>
+                  <span className="font-medium">{shippingCost === 0 ? 'Free' : `AED ${shippingCost}`}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-gray-600">Tax</span>
-                  <span className="font-medium">${tax}</span>
+                  <span className="font-medium">AED {tax}</span>
                 </div>
                 <div className="flex justify-between text-lg font-bold pt-3 border-t">
                   <span>Total</span>
-                  <span className="text-coral">${finalTotal}</span>
+                  <span className="text-coral">AED {finalTotal}</span>
                 </div>
               </div>
               
@@ -347,7 +347,7 @@ export function CheckoutPage() {
               <div className="mt-6 pt-6 border-t grid grid-cols-3 gap-2 text-center">
                 <div>
                   <Truck className="w-5 h-5 mx-auto text-gray-400 mb-1" />
-                  <p className="text-xs text-gray-500">Free shipping $50+</p>
+                  <p className="text-xs text-gray-500">Free shipping AED 50+</p>
                 </div>
                 <div>
                   <Shield className="w-5 h-5 mx-auto text-gray-400 mb-1" />

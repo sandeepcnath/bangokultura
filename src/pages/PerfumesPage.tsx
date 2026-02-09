@@ -8,51 +8,19 @@ gsap.registerPlugin(ScrollTrigger);
 const perfumeProducts = [
   { 
     id: 201, 
-    name: 'Citrus Wood EDP', 
-    price: 78, 
-    image: '/product_perfume.png', 
+    name: 'Lattafa Yara', 
+    price: 85, 
+    image: '/lattafa-yara.jpeg', 
     category: 'perfume',
-    description: 'Fresh citrus top notes with warm woody base. Perfect for daily wear.'
-  },
-  { 
-    id: 202, 
-    name: 'Linen Musk Roller', 
-    price: 42, 
-    image: '/product_roller.png', 
-    category: 'perfume',
-    description: 'Soft musk with clean linen notes. Travel-friendly rollerball.'
+    description: 'Lattafa Yara'
   },
   { 
     id: 203, 
-    name: 'Élixir Crystal', 
-    price: 120, 
-    image: '/perfume_bottle.png', 
+    name: 'Ameerat Al Arab', 
+    price: 65, 
+    image: '/ameerat-al-arab.jpeg', 
     category: 'perfume',
     description: 'Luxurious evening fragrance with amber and vanilla notes.'
-  },
-  { 
-    id: 204, 
-    name: 'Ocean Breeze', 
-    price: 65, 
-    image: '/product_perfume.png', 
-    category: 'perfume',
-    description: 'Refreshing aquatic scent with sea salt and driftwood.'
-  },
-  { 
-    id: 205, 
-    name: 'Rose Garden', 
-    price: 85, 
-    image: '/product_roller.png', 
-    category: 'perfume',
-    description: 'Classic rose blend with hints of jasmine and peony.'
-  },
-  { 
-    id: 206, 
-    name: 'Midnight Oud', 
-    price: 145, 
-    image: '/perfume_bottle.png', 
-    category: 'perfume',
-    description: 'Rich, mysterious oud with spices and dark chocolate.'
   },
 ];
 
@@ -114,7 +82,7 @@ export function PerfumesPage() {
                   {perfumeProducts.length} Products
                 </span>
                 <span className="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-600">
-                  From $42
+                  From AED 42
                 </span>
               </div>
             </div>

@@ -114,7 +114,7 @@ export function ToysPage() {
                   {toyProducts.length} Products
                 </span>
                 <span className="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-600">
-                  From $18
+                  From AED 18
                 </span>
               </div>
             </div>

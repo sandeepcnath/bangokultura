@@ -7,28 +7,20 @@ gsap.registerPlugin(ScrollTrigger);
 
 const nailProducts = [
   { 
-    id: 101, 
-    name: 'Midnight Mani Kit', 
-    price: 34, 
-    image: '/product_mani_kit.png', 
-    category: 'nail',
-    description: 'Complete nail art kit with 6 premium polishes and essential tools.'
-  },
-  { 
     id: 102, 
-    name: 'Gel Top Coat Set', 
+    name: 'Metallic blue nails', 
     price: 24, 
-    image: '/product_gel_set.png', 
+    image: '/product_gel_set.jpeg', 
     category: 'nail',
-    description: 'Professional-grade gel top coat for salon-quality finish at home.'
+    description: 'Metallic blue nails'
   },
   { 
     id: 103, 
-    name: 'Coral Crush Polish', 
+    name: 'Nude nails with Glit and Floral pattern', 
     price: 18, 
-    image: '/nail_polish.png', 
+    image: '/nail_polish.jpeg', 
     category: 'nail',
-    description: 'Vibrant coral shade with long-lasting, chip-resistant formula.'
+    description: 'Nude nails with Glit and Floral pattern.'
   },
   { 
     id: 104, 
@@ -116,14 +108,14 @@ export function NailArtPage() {
                   {nailProducts.length} Products
                 </span>
                 <span className="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-600">
-                  From $18
+                  From AED 18
                 </span>
               </div>
             </div>
             <div className="relative flex justify-center">
               <div className="absolute inset-0 bg-coral rounded-full opacity-10 blur-3xl scale-75" />
               <img 
-                src="/nail_polish.png" 
+                src="/nail_polish.jpeg" 
                 alt="Nail Art"
                 className="relative z-10 w-full max-w-sm"
               />

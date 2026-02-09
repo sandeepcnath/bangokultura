@@ -10,9 +10,9 @@ gsap.registerPlugin(ScrollTrigger);
 // Products data
 const featuredProducts = [
   { id: 1, name: 'Midnight Mani Kit', price: 34, image: '/product_mani_kit.png', category: 'nail' },
-  { id: 2, name: 'Citrus Wood EDP', price: 78, image: '/product_perfume.png', category: 'perfume' },
+  { id: 2, name: 'Lattafa Yara', price: 78, image: '/lattafa-yara.jpeg', category: 'perfume' },
   { id: 3, name: 'Rally Racer Collectible', price: 58, image: '/product_racer.png', category: 'toy' },
-  { id: 4, name: 'Gel Top Coat Set', price: 24, image: '/product_gel_set.png', category: 'nail' },
+  { id: 4, name: 'Metallic Blue Nails', price: 24, image: '/product_gel_set.jpeg', category: 'nail' },
 ];
 
 export function HomePage() {
@@ -174,7 +174,7 @@ export function HomePage() {
               <div className="bg-white rounded-3xl p-8 h-full transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
                 <div className="aspect-square bg-gray-50 rounded-2xl mb-6 flex items-center justify-center overflow-hidden">
                   <img 
-                    src="/nail_polish.png" 
+                    src="/nail_polish.jpeg" 
                     alt="Nail Art"
                     className="w-3/4 h-auto transition-transform duration-500 group-hover:scale-110"
                   />
@@ -253,7 +253,7 @@ export function HomePage() {
               <p className="text-white/90 text-lg mb-6 max-w-md">
                 Limited run. Clean lines, all-day comfort, and details that hold up close.
               </p>
-              <p className="font-display font-bold text-4xl mb-8">$129</p>
+              <p className="font-display font-bold text-4xl mb-8">AED 129</p>
               <button 
                 onClick={() => addToCart({ id: 99, name: 'Limited Drop Sneaker', price: 129, image: '/sneaker.png', category: 'featured' })}
                 className="bg-white text-coral px-8 py-4 rounded-full font-medium hover:bg-ink hover:text-white transition-all duration-300"
@@ -302,7 +302,7 @@ export function HomePage() {
                 </div>
                 <div className="p-5">
                   <h3 className="font-medium text-ink mb-1">{product.name}</h3>
-                  <p className="text-coral font-semibold">${product.price}</p>
+                  <p className="text-coral font-semibold">AED {product.price}</p>
                 </div>
               </div>
             ))}

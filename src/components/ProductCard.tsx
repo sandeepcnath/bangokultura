@@ -48,7 +48,7 @@ export function ProductCard({ id, name, price, image, category, description }: P
         {description && (
           <p className="text-sm text-gray-500 mb-3 line-clamp-2">{description}</p>
         )}
-        <p className="text-coral font-bold text-lg">${price}</p>
+        <p className="text-coral font-bold text-lg">AED {price}</p>
       </div>
     </div>
   );

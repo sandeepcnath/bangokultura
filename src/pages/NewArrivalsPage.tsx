@@ -7,13 +7,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 const allProducts = [
   { id: 1, name: 'Midnight Mani Kit', price: 34, image: '/product_mani_kit.png', category: 'nail', description: 'Complete nail art kit with 6 premium polishes.' },
-  { id: 2, name: 'Citrus Wood EDP', price: 78, image: '/product_perfume.png', category: 'perfume', description: 'Fresh citrus with warm woody base.' },
+  { id: 2, name: 'Lattafa Yara', price: 78, image: '/lattafa-yara.jpeg', category: 'perfume', description: 'Lattafa Yara, A sweet floral essence of feminine perfume' },
   { id: 3, name: 'Rally Racer Collectible', price: 58, image: '/product_racer.png', category: 'toy', description: 'Vintage-inspired race car collectible.' },
   { id: 4, name: 'Gel Top Coat Set', price: 24, image: '/product_gel_set.png', category: 'nail', description: 'Professional-grade gel top coat.' },
   { id: 5, name: 'Linen Musk Roller', price: 42, image: '/product_roller.png', category: 'perfume', description: 'Soft musk with clean linen notes.' },
   { id: 6, name: 'Display Cube (Small)', price: 18, image: '/product_cube.png', category: 'toy', description: 'Clear acrylic display cube.' },
-  { id: 101, name: 'Coral Crush Polish', price: 18, image: '/nail_polish.png', category: 'nail', description: 'Vibrant coral nail polish.' },
-  { id: 201, name: 'Élixir Crystal', price: 120, image: '/perfume_bottle.png', category: 'perfume', description: 'Luxurious evening fragrance.' },
+  { id: 101, name: 'Nude nails with Glit and Floral pattern', price: 18, image: '/nail_polish.jpeg', category: 'nail', description: 'Nude nails with Glit and Floral pattern' },
+  { id: 201, name: 'Ameerat Al Arab', price: 85, image: '/ameerat-al-arab.jpeg', category: 'perfume', description: 'Luxurious evening fragrance.' },
   { id: 302, name: 'Classic Cruiser', price: 45, image: '/toy_car.png', category: 'toy', description: 'Retro-styled toy car.' },
 ];
 
@@ -79,7 +79,7 @@ export function NewArrivalsPage() {
                 {allProducts.length} Products
               </span>
               <span className="px-4 py-2 bg-coral rounded-full text-sm font-medium text-white">
-                Free Shipping $50+
+                Free Shipping AED 50+
               </span>
             </div>
           </div>
