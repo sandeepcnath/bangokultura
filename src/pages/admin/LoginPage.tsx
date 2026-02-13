@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useAuth } from '../../context/AdminAuthContext';
-import { Eye, EyeOff, Loader2 } from 'lucide-react';
+import { Eye, EyeOff, Loader2, Sparkles } from 'lucide-react';
 
 export function LoginPage() {
-  const { signIn, signUp } = useAuth();
+  const { signIn, signUp, enterDemoMode } = useAuth();
   const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
