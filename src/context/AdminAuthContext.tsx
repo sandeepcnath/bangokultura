@@ -108,10 +108,23 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const signOut = async () => {
     await supabase.auth.signOut();
     setAdminUser(null);
+    setDemoMode(false);
+    setUser(null);
+  };
+
+  const enterDemoMode = () => {
+    setDemoMode(true);
+    setUser(DEMO_USER);
+    setAdminUser({
+      id: 'demo-user-id',
+      email: 'demo@admin.portal',
+      name: 'Demo Admin',
+      role: 'admin'
+    });
   };
 
   return (
-    <AuthContext.Provider value={{ user, session, adminUser, loading, signIn, signUp, signOut }}>
+    <AuthContext.Provider value={{ user, session, adminUser, loading, demoMode, signIn, signUp, signOut, enterDemoMode }}>
       {children}
     </AuthContext.Provider>
   );
