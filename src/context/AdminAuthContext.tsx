@@ -21,41 +21,28 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // TESTING MODE: Create a mock user for demo testing
-    const mockUser = {
-      id: 'test-user-id',
-      email: 'test@demo.com',
-      user_metadata: { name: 'Demo Admin' }
-    } as User;
-    
-    // Simulate authenticated state for testing
-    setUser(mockUser);
-    setSession({ user: mockUser } as Session);
-    setLoading(false);
-    
-    // Original code commented out for testing:
-    // // Get initial session
-    // supabase.auth.getSession().then(({ data: { session } }) => {
-    //   setSession(session);
-    //   setUser(session?.user ?? null);
-    //   if (session?.user) {
-    //     fetchAdminUser(session.user.id);
-    //   }
-    //   setLoading(false);
-    // });
+    // Get initial session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+      setUser(session?.user ?? null);
+      if (session?.user) {
+        fetchAdminUser(session.user.id);
+      }
+      setLoading(false);
+    });
 
-    // Listen for auth changes - disabled for testing
-    // const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-    //   setSession(session);
-    //   setUser(session?.user ?? null);
-    //   if (session?.user) {
-    //     fetchAdminUser(session.user.id);
-    //   } else {
-    //     setAdminUser(null);
-    //   }
-    // });
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+      setUser(session?.user ?? null);
+      if (session?.user) {
+        fetchAdminUser(session.user.id);
+      } else {
+        setAdminUser(null);
+      }
+    });
 
-    // return () => subscription.unsubscribe();
+    return () => subscription.unsubscribe();
   }, []);
 
   const fetchAdminUser = async (userId: string) => {
