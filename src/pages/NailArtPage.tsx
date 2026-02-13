@@ -128,7 +128,7 @@ export function NailArtPage() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <span className="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-600">
-                  {nailProducts.length} Products
+                  {displayProducts.length} Products
                 </span>
                 <span className="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-600">
                   From AED 18
