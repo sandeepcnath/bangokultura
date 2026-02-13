@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useAuth, AuthProvider } from '../../context/AdminAuthContext';
 import { AdminLayout } from '../../components/admin/AdminLayout';
 import { LoginPage } from './LoginPage';
@@ -11,6 +11,7 @@ import { Loader2 } from 'lucide-react';
 
 function AdminContent() {
   const { user, loading } = useAuth();
+  const location = useLocation();
 
   if (loading) {
     return (
@@ -27,16 +28,31 @@ function AdminContent() {
     return <LoginPage />;
   }
 
+  // Get the sub-path after /admin
+  const adminPath = location.pathname.replace('/admin', '') || '/';
+
+  // Render content based on the current admin path
+  const renderContent = () => {
+    switch (adminPath) {
+      case '/':
+      case '':
+        return <DashboardPage />;
+      case '/products':
+        return <ProductsPage />;
+      case '/orders':
+        return <OrdersPage />;
+      case '/customers':
+        return <CustomersPage />;
+      case '/settings':
+        return <SettingsPage />;
+      default:
+        return <DashboardPage />;
+    }
+  };
+
   return (
     <AdminLayout>
-      <Routes>
-        <Route path="/" element={<DashboardPage />} />
-        <Route path="/products" element={<ProductsPage />} />
-        <Route path="/orders" element={<OrdersPage />} />
-        <Route path="/customers" element={<CustomersPage />} />
-        <Route path="/settings" element={<SettingsPage />} />
-        <Route path="*" element={<Navigate to="/admin" replace />} />
-      </Routes>
+      {renderContent()}
     </AdminLayout>
   );
 }
