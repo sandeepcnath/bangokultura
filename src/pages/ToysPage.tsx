@@ -2,47 +2,44 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ProductCard } from '../components/ProductCard';
+import { useProducts } from '../context/ProductsContext';
+import { Loader2 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const toyProducts = [
+// Fallback products
+const fallbackProducts = [
   { 
-    id: 301, 
+    id: '301', 
     name: 'Rally Racer Collectible', 
     price: 58, 
-    image: '/product_racer.png', 
-    category: 'toy',
-    description: 'Vintage-inspired race car with premium metal construction.'
+    image_url: '/product_racer.png', 
+    category: 'Toys',
+    stock: 100,
+    description: 'Vintage-inspired race car with premium metal construction.',
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
   },
   { 
-    id: 302, 
+    id: '302', 
     name: 'Classic Cruiser', 
     price: 45, 
-    image: '/toy_car.png', 
-    category: 'toy',
-    description: 'Retro-styled toy car in coral and cream. Perfect for display.'
-  },
-  { 
-    id: 303, 
-    name: 'Lavender and Cream Nail Set', 
-    price: 18, 
-    image: '/product_cube.jpeg', 
-    category: 'toy',
-    description: 'Lavendar and Cream themed nail set with beautiful patterns.'
-  },
-  { 
-    id: 305, 
-    name: 'Mini Garage Set', 
-    price: 75, 
-    image: '/toy_car.png', 
-    category: 'toy',
-    description: 'Detailed miniature garage with tools and accessories.'
+    image_url: '/toy_car.png', 
+    category: 'Toys',
+    stock: 100,
+    description: 'Retro-styled toy car in coral and cream. Perfect for display.',
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
   },
 ];
 
 export function ToysPage() {
   const heroRef = useRef<HTMLElement>(null);
   const productsRef = useRef<HTMLDivElement>(null);
+  const { products, loading, getProductsByCategory } = useProducts();
+
+  const toyProducts = getProductsByCategory('Toys');
+  const displayProducts = toyProducts.length > 0 ? toyProducts : fallbackProducts;
 
   useEffect(() => {
     const ctx = gsap.context(() => {
