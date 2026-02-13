@@ -2,31 +2,44 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ProductCard } from '../components/ProductCard';
+import { useProducts } from '../context/ProductsContext';
+import { Loader2 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const perfumeProducts = [
+// Fallback products
+const fallbackProducts = [
   { 
-    id: 201, 
+    id: '201', 
     name: 'Lattafa Yara', 
     price: 85, 
-    image: '/lattafa-yara.jpeg', 
-    category: 'perfume',
-    description: 'Lattafa Yara'
+    image_url: '/lattafa-yara.jpeg', 
+    category: 'Perfumes',
+    stock: 100,
+    description: 'Lattafa Yara - A captivating blend of tropical fruits and gourmand notes.',
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
   },
   { 
-    id: 203, 
+    id: '203', 
     name: 'Ameerat Al Arab', 
     price: 65, 
-    image: '/ameerat-al-arab.jpeg', 
-    category: 'perfume',
-    description: 'Luxurious evening fragrance with amber and vanilla notes.'
+    image_url: '/ameerat-al-arab.jpeg', 
+    category: 'Perfumes',
+    stock: 100,
+    description: 'Luxurious evening fragrance with amber and vanilla notes.',
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
   },
 ];
 
 export function PerfumesPage() {
   const heroRef = useRef<HTMLElement>(null);
   const productsRef = useRef<HTMLDivElement>(null);
+  const { products, loading, getProductsByCategory } = useProducts();
+
+  const perfumeProducts = getProductsByCategory('Perfumes');
+  const displayProducts = perfumeProducts.length > 0 ? perfumeProducts : fallbackProducts;
 
   useEffect(() => {
     const ctx = gsap.context(() => {
