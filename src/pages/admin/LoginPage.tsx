@@ -154,6 +154,29 @@ export function LoginPage() {
               {isSignUp ? 'Already have an account? Sign In' : "Don't have an account? Sign Up"}
             </button>
           </div>
+
+          {/* Demo Mode Divider */}
+          <div className="relative my-6">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-zinc-800"></div>
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-zinc-900 px-3 text-zinc-500">or</span>
+            </div>
+          </div>
+
+          {/* Demo Mode Button */}
+          <button
+            onClick={enterDemoMode}
+            className="w-full flex items-center justify-center gap-2 border border-[#7000ff]/30 bg-[#7000ff]/10 px-6 py-3 text-[#a855f7] font-semibold tracking-wide hover:bg-[#7000ff]/20 hover:border-[#7000ff]/50 transition-all duration-300 rounded-lg"
+            data-testid="demo-mode-btn"
+          >
+            <Sparkles size={18} />
+            Explore Demo Mode
+          </button>
+          <p className="text-xs text-zinc-600 text-center mt-2">
+            Preview all features with sample data
+          </p>
         </div>
 
         {/* Footer */}
