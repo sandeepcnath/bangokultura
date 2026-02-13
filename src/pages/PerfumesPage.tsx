@@ -92,7 +92,7 @@ export function PerfumesPage() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <span className="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-600">
-                  {perfumeProducts.length} Products
+                  {displayProducts.length} Products
                 </span>
                 <span className="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-600">
                   From AED 42
