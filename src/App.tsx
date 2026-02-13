@@ -7,7 +7,7 @@ import { PerfumesPage } from './pages/PerfumesPage';
 import { ToysPage } from './pages/ToysPage';
 import { NewArrivalsPage } from './pages/NewArrivalsPage';
 import { CheckoutPage } from './pages/CheckoutPage';
-import { AdminPreview } from './pages/admin/AdminPreview';
+import { AdminApp } from './pages/admin/AdminApp';
 import './App.css';
 
 function App() {
@@ -16,11 +16,7 @@ function App() {
 
   // Admin routes render without the storefront layout
   if (isAdminRoute) {
-    return (
-      <Routes>
-        <Route path="/admin/*" element={<AdminPreview />} />
-      </Routes>
-    );
+    return <AdminApp />;
   }
 
   return (
