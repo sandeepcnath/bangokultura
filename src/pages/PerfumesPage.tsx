@@ -128,11 +128,25 @@ export function PerfumesPage() {
             </div>
           </div>
           
-          <div ref={productsRef} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {perfumeProducts.map((product) => (
-              <ProductCard key={product.id} {...product} />
-            ))}
-          </div>
+          {loading ? (
+            <div className="flex items-center justify-center py-20">
+              <Loader2 className="w-8 h-8 animate-spin text-coral" />
+            </div>
+          ) : (
+            <div ref={productsRef} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {displayProducts.map((product) => (
+                <ProductCard 
+                  key={product.id} 
+                  id={Number(product.id) || Math.random()}
+                  name={product.name}
+                  price={product.price}
+                  image={product.image_url}
+                  category={product.category}
+                  description={product.description}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
