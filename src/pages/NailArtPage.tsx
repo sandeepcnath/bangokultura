@@ -12,6 +12,7 @@ const nailProducts = [
     price: 25, 
     image: '/product_mani_kit.jpeg', 
     category: 'nail',
+    tags: ["classic", "embossed"],
     description: 'Embossed Crystals Nail Art. A sparkling statement piece for your next big event.'
   },
   { 
@@ -20,6 +21,7 @@ const nailProducts = [
     price: 25, 
     image: '/sky-patterned-nails-golden-accents.jpg', 
     category: 'nail',
+    tags: ["classic", "embossed"],
     description: 'Sky Patterned Nails with Golden Accents. A shimmering and elegant look with golden highlights.'
   },
   { 
@@ -28,6 +30,7 @@ const nailProducts = [
     price: 20, 
     image: '/nail_polish.jpeg', 
     category: 'nail',
+    tags: ["classic", "embossed"],
     description: 'Nude nails with Glit and Floral pattern.'
   },
   { 
@@ -36,6 +39,7 @@ const nailProducts = [
     price: 15, 
     image: '/product_roller.jpeg', 
     category: 'nail',
+    tags: ["classic", "embossed"],
     description: 'Cream and dark rose nails with floral pattern. A romantic and elegant choice for any occasion.'
   },
   { 
