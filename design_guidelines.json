@@ -1,0 +1,164 @@
+{
+  "identity": {
+    "designer": "E1",
+    "mission": "Create a high-performance, cyberpunk-inspired admin portal that feels like a hacker's command center.",
+    "emotional_tone": "Electric, Precise, Elite, Futuristic, High-Velocity",
+    "archetype": "Electric & Neon",
+    "theme_mode": "dark"
+  },
+  "typography": {
+    "font_family": {
+      "headings": "\"Unbounded\", \"Orbitron\", sans-serif",
+      "body": "\"Rajdhani\", \"JetBrains Mono\", monospace",
+      "mono": "\"JetBrains Mono\", monospace"
+    },
+    "imports": [
+      "https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+    ],
+    "scale": {
+      "h1": "text-5xl md:text-6xl font-extrabold tracking-tight uppercase glow-text",
+      "h2": "text-3xl md:text-4xl font-bold tracking-wide uppercase",
+      "h3": "text-xl md:text-2xl font-semibold tracking-wide text-cyan-400",
+      "body": "text-base font-medium tracking-normal leading-relaxed",
+      "label": "text-xs font-bold uppercase tracking-[0.2em] text-zinc-400"
+    }
+  },
+  "colors": {
+    "background": {
+      "base": "#020204",
+      "surface": "#09090b",
+      "card": "rgba(9, 9, 11, 0.6)",
+      "overlay": "rgba(0, 0, 0, 0.8)"
+    },
+    "primary": {
+      "main": "#00f0ff",
+      "glow": "0 0 20px rgba(0, 240, 255, 0.5)",
+      "text": "#00f0ff"
+    },
+    "secondary": {
+      "main": "#7000ff",
+      "glow": "0 0 20px rgba(112, 0, 255, 0.5)",
+      "text": "#a855f7"
+    },
+    "accent": {
+      "success": "#00ff9d",
+      "warning": "#ffe600",
+      "danger": "#ff0055",
+      "info": "#2998ff"
+    },
+    "neutral": {
+      "100": "#f4f4f5",
+      "200": "#e4e4e7",
+      "300": "#d4d4d8",
+      "400": "#a1a1aa",
+      "500": "#71717a",
+      "600": "#52525b",
+      "700": "#3f3f46",
+      "800": "#27272a",
+      "900": "#18181b"
+    }
+  },
+  "visual_enhancers": {
+    "glassmorphism": {
+      "heavy": "bg-black/60 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)]",
+      "light": "bg-zinc-900/40 backdrop-blur-md border border-white/5",
+      "neon_border": "border border-cyan-500/30 shadow-[0_0_15px_rgba(0,240,255,0.15)]"
+    },
+    "borders": {
+      "default": "border-zinc-800",
+      "active": "border-cyan-500/50"
+    },
+    "shadows": {
+      "neon_cyan": "0 0 10px rgba(0, 240, 255, 0.3), 0 0 20px rgba(0, 240, 255, 0.1)",
+      "neon_pink": "0 0 10px rgba(255, 0, 85, 0.3), 0 0 20px rgba(255, 0, 85, 0.1)"
+    }
+  },
+  "layout_strategy": {
+    "dashboard_grid": "grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-6 p-6",
+    "card_spacing": "p-6",
+    "section_spacing": "py-12 px-6 md:px-12",
+    "mobile_nav": "fixed bottom-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-lg border-t border-zinc-800 p-4 flex justify-around"
+  },
+  "components": {
+    "buttons": {
+      "primary": "relative overflow-hidden rounded-none border border-cyan-500 bg-cyan-500/10 px-6 py-2 text-cyan-400 font-bold uppercase tracking-wider hover:bg-cyan-500 hover:text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,240,255,0.4)]",
+      "secondary": "rounded-none border border-zinc-700 bg-black px-6 py-2 text-zinc-300 font-bold uppercase tracking-wider hover:border-white hover:text-white transition-all duration-300",
+      "danger": "rounded-none border border-red-900/50 bg-red-950/10 px-6 py-2 text-red-500 hover:bg-red-900/20 hover:border-red-500 transition-all"
+    },
+    "cards": {
+      "stat_card": "relative overflow-hidden rounded-xl bg-zinc-900/40 border border-white/5 p-6 backdrop-blur-sm group hover:border-cyan-500/30 transition-all duration-500",
+      "chart_card": "rounded-xl bg-zinc-950/50 border border-zinc-800 p-6 backdrop-blur-sm"
+    },
+    "inputs": {
+      "default": "bg-black/50 border border-zinc-800 text-zinc-200 placeholder:text-zinc-600 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/50 rounded-md h-10 px-4 transition-all"
+    },
+    "navigation": {
+      "sidebar": "hidden lg:flex flex-col w-64 h-screen fixed left-0 top-0 bg-black/90 backdrop-blur-xl border-r border-zinc-800 z-40 pt-20",
+      "item_active": "text-cyan-400 bg-cyan-500/10 border-r-2 border-cyan-400",
+      "item_inactive": "text-zinc-500 hover:text-zinc-200 hover:bg-zinc-900/50 transition-colors"
+    }
+  },
+  "image_urls": {
+    "inventory_demo": [
+      {
+        "url": "https://images.unsplash.com/photo-1636036782503-d78768e6b95c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHw0fHxnYW1pbmclMjBtb3VzZSUyMG5lb24lMjBsaWdodHxlbnwwfHx8fDE3NzEwMTM3MTB8MA&ixlib=rb-4.1.0&q=85",
+        "alt": "Cyberpunk Gaming Mouse",
+        "category": "Products"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1669884209488-1332b73f122b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHw0fHxtZWNoYW5pY2FsJTIwa2V5Ym9hcmQlMjByZ2J8ZW58MHx8fHwxNzcxMDEzNzExfDA&ixlib=rb-4.1.0&q=85",
+        "alt": "Neon Mechanical Keyboard",
+        "category": "Products"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1711662171213-4141abec218f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2ODl8MHwxfHNlYXJjaHwzfHxmdXR1cmlzdGljJTIwY3liZXJwdW5rJTIwZ2FkZ2V0c3xlbnwwfHx8fDE3NzEwMTM3MDJ8MA&ixlib=rb-4.1.0&q=85",
+        "alt": "VR Headset Interface",
+        "category": "Products"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1631155989170-5b1d86e13cef?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwyfHxnYW1pbmclMjBtb3VzZSUyMG5lb24lMjBsaWdodHxlbnwwfHx8fDE3NzEwMTM3MTB8MA&ixlib=rb-4.1.0&q=85",
+        "alt": "Gaming Peripheral Set",
+        "category": "Products"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1649899913123-90bb33c8a66a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwxfHxtZWNoYW5pY2FsJTIwa2V5Ym9hcmQlMjByZ2J8ZW58MHx8fHwxNzcxMDEzNzExfDA&ixlib=rb-4.1.0&q=85",
+        "alt": "RGB Keyboard Detail",
+        "category": "Products"
+      }
+    ],
+    "avatars": [
+      {
+        "url": "https://images.unsplash.com/photo-1580046939256-c377c5b099f1?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NDh8MHwxfHNlYXJjaHwyfHxjeWJlcnB1bmslMjB1c2VyJTIwYXZhdGFyJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDEzNzAzfDA&ixlib=rb-4.1.0&q=85",
+        "alt": "Admin User 1",
+        "category": "User"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1587321965030-035a856311d6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NDh8MHwxfHNlYXJjaHwzfHxjeWJlcnB1bmslMjB1c2VyJTIwYXZhdGFyJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDEzNzAzfDA&ixlib=rb-4.1.0&q=85",
+        "alt": "Admin User 2",
+        "category": "User"
+      }
+    ]
+  },
+  "motion": {
+    "hover_effects": "hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,240,255,0.3)] transition-all duration-300",
+    "page_transition": "animate-in fade-in slide-in-from-bottom-4 duration-500 ease-out",
+    "list_stagger": "animate-in slide-in-from-right-4 duration-300 fade-in"
+  },
+  "universal_guidelines": [
+    "NEVER use pure white backgrounds. Always use #050505 or #09090b.",
+    "Borders are key. Use thin 1px borders with low opacity (border-white/10) to define structure.",
+    "Use Neon Cyan (#00f0ff) sparingly for focus states, active items, and primary actions.",
+    "Text hierarchy: Use 'Unbounded' for headers to give that futuristic tech feel.",
+    "Data Visualization: Charts must use dark backgrounds with neon stroke lines.",
+    "Don't clutter. Cyberpunk is about 'High Tech, Low Life' - make the tech feel sophisticated and clean.",
+    "Ensure all interactive elements have data-testid attributes."
+  ],
+  "instructions_to_main_agent": [
+    "1. Setup Tailwind Colors: Update tailwind.config.js to include the custom neon palette.",
+    "2. Fonts: Add the Google Fonts import to index.css immediately.",
+    "3. Layout: Create a Layout component that includes the sidebar (desktop) and bottom nav (mobile).",
+    "4. Dashboard: Build the main dashboard using a Bento Grid layout (Grid Mode B).",
+    "5. Supabase: Ensure Supabase client is initialized but MOCK data if connection fails so the UI is reviewable.",
+    "6. Use the provided image URLs for the Inventory and Customer demo data."
+  ]
+}
