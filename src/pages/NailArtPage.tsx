@@ -1,14 +1,30 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { supabase } from '../lib/supabase';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ProductCard } from '../components/ProductCard';
-import { useProducts } from '../context/ProductsContext';
 import { Loader2 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Type for nailArt table
+interface NailArtProduct {
+  id: string;
+  name: string;
+  description?: string;
+  price: number;
+  discounted_price?: number;
+  stock?: number;
+  image_url?: string;
+  image_urls?: string[];
+  category?: string;
+  tags?: string[];
+  priority?: boolean;
+  created_at?: string;
+}
+
 // Fallback products when database is empty
-const fallbackProducts = [
+const fallbackProducts: NailArtProduct[] = [
   { 
     id: '104', 
     name: 'Embossed Crystals Nail Art', 
@@ -20,8 +36,7 @@ const fallbackProducts = [
     priority: true,
     stock: 100,
     description: 'Embossed Crystals Nail Art. A sparkling statement piece for your next big event.',
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
+    created_at: new Date().toISOString()
   },
   { 
     id: '119', 
@@ -31,8 +46,7 @@ const fallbackProducts = [
     category: 'Nail Art',
     stock: 100,
     description: 'Sky Patterned Nails with Golden Accents. A shimmering and elegant look with golden highlights.',
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
+    created_at: new Date().toISOString()
   },
   { 
     id: '103', 
@@ -42,8 +56,7 @@ const fallbackProducts = [
     category: 'Nail Art',
     stock: 100,
     description: 'Nude nails with Glit and Floral pattern.',
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
+    created_at: new Date().toISOString()
   },
   { 
     id: '107', 
@@ -53,8 +66,7 @@ const fallbackProducts = [
     category: 'Nail Art',
     stock: 100,
     description: 'Green and Cream Floral Nails. A fresh and vibrant look with intricate floral designs.',
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
+    created_at: new Date().toISOString()
   },
   { 
     id: '109', 
@@ -64,19 +76,68 @@ const fallbackProducts = [
     category: 'Nail Art',
     stock: 100,
     description: 'Professional Matte Pink Nails. A sophisticated and timeless look with a soft matte finish.',
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
+    created_at: new Date().toISOString()
   },
 ];
 
 export function NailArtPage() {
   const heroRef = useRef<HTMLElement>(null);
   const productsRef = useRef<HTMLDivElement>(null);
-  const { products, loading, getProductsByCategory } = useProducts();
+  
+  const [products, setProducts] = useState<NailArtProduct[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  // Get nail art products from Supabase or use fallback
-  const nailProducts = getProductsByCategory('Nail Art');
-  const displayProducts = nailProducts.length > 0 ? nailProducts : fallbackProducts;
+  // Fetch products from nailArt table in Supabase
+  useEffect(() => {
+    async function fetchProducts() {
+      setLoading(true);
+      try {
+        const { data, error } = await supabase
+          .from('nailArt')
+          .select('*')
+          .order('created_at', { ascending: false });
+
+        if (error) {
+          console.error('Error fetching from nailArt:', error);
+          setProducts([]);
+        } else if (data && data.length > 0) {
+          setProducts(data);
+        } else {
+          setProducts([]);
+        }
+      } catch (err) {
+        console.error('Error:', err);
+        setProducts([]);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchProducts();
+
+    // Real-time subscription for changes
+    const channel = supabase
+      .channel('nailart-realtime')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'nailArt' }, () => {
+        fetchProducts();
+      })
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, []);
+
+  // Use Supabase products or fallback
+  const displayProducts = products.length > 0 ? products : fallbackProducts;
+
+  // Get image URL (handles both image_url and image_urls)
+  const getImageUrl = (product: NailArtProduct): string => {
+    if (product.image_urls && product.image_urls.length > 0) {
+      return product.image_urls[0];
+    }
+    return product.image_url || '/nail_polish.jpeg';
+  };
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -178,10 +239,10 @@ export function NailArtPage() {
                   key={product.id} 
                   id={Number(product.id) || Math.random()}
                   name={product.name}
-                  price={product.price}
-                  image={product.image_url}
-                  category={product.category}
-                  description={product.description}
+                  price={product.discounted_price || product.price}
+                  image={getImageUrl(product)}
+                  category={product.category || 'Nail Art'}
+                  description={product.description || ''}
                 />
               ))}
             </div>
