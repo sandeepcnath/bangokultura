@@ -1,31 +1,14 @@
-import { useEffect, useRef, useState } from 'react';
-import { supabase } from '../lib/supabase';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ProductCard } from '../components/ProductCard';
+import { useProducts } from '../context/ProductsContext';
 import { Loader2 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Type for nailArt table
-interface NailArtProduct {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  discounted_price?: number;
-  stock: number;
-  image_url?: string;
-  image_urls?: string[];
-  category?: string;
-  tags?: string[];
-  priority?: boolean;
-  created_at: string;
-  updated_at?: string;
-}
-
 // Fallback products when database is empty
-const fallbackProducts: NailArtProduct[] = [
+const fallbackProducts = [
   { 
     id: '104', 
     name: 'Embossed Crystals Nail Art', 
@@ -89,65 +72,11 @@ const fallbackProducts: NailArtProduct[] = [
 export function NailArtPage() {
   const heroRef = useRef<HTMLElement>(null);
   const productsRef = useRef<HTMLDivElement>(null);
-  
-  // State for products from Supabase
-  const [products, setProducts] = useState<NailArtProduct[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const { products, loading, getProductsByCategory } = useProducts();
 
-  // Fetch products from nailArt table
-  useEffect(() => {
-    async function fetchNailArtProducts() {
-      setLoading(true);
-      setError(null);
-      
-      try {
-        const { data, error: fetchError } = await supabase
-          .from('nailArt')
-          .select('*')
-          .order('created_at', { ascending: false });
-
-        if (fetchError) {
-          console.error('Supabase error:', fetchError);
-          throw fetchError;
-        }
-
-        if (data && data.length > 0) {
-          setProducts(data);
-        } else {
-          // No products in database, use fallback
-          setProducts([]);
-        }
-      } catch (err) {
-        console.error('Error fetching nail art products:', err);
-        setError('Failed to load products');
-        setProducts([]);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchNailArtProducts();
-
-    // Subscribe to realtime changes
-    const channel = supabase
-      .channel('nailart-changes')
-      .on(
-        'postgres_changes',
-        { event: '*', schema: 'public', table: 'nailArt' },
-        () => {
-          fetchNailArtProducts();
-        }
-      )
-      .subscribe();
-
-    return () => {
-      supabase.removeChannel(channel);
-    };
-  }, []);
-
-  // Use fetched products or fallback
-  const displayProducts = products.length > 0 ? products : fallbackProducts;
+  // Get nail art products from Supabase or use fallback
+  const nailProducts = getProductsByCategory('Nail Art');
+  const displayProducts = nailProducts.length > 0 ? nailProducts : fallbackProducts;
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -181,15 +110,7 @@ export function NailArtPage() {
     });
 
     return () => ctx.revert();
-  }, [displayProducts]);
-
-  // Get the image URL (handles both image_url and image_urls array)
-  const getImageUrl = (product: NailArtProduct): string => {
-    if (product.image_urls && product.image_urls.length > 0) {
-      return product.image_urls[0];
-    }
-    return product.image_url || '/nail_polish.jpeg';
-  };
+  }, []);
 
   return (
     <div className="pt-20">
@@ -250,11 +171,6 @@ export function NailArtPage() {
             <div className="flex items-center justify-center py-20">
               <Loader2 className="w-8 h-8 animate-spin text-coral" />
             </div>
-          ) : error ? (
-            <div className="flex flex-col items-center justify-center py-20">
-              <p className="text-red-500 mb-4">{error}</p>
-              <p className="text-gray-500">Showing fallback products</p>
-            </div>
           ) : (
             <div ref={productsRef} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {displayProducts.map((product) => (
@@ -262,9 +178,9 @@ export function NailArtPage() {
                   key={product.id} 
                   id={Number(product.id) || Math.random()}
                   name={product.name}
-                  price={product.discounted_price || product.price}
-                  image={getImageUrl(product)}
-                  category={product.category || 'Nail Art'}
+                  price={product.price}
+                  image={product.image_url}
+                  category={product.category}
                   description={product.description}
                 />
               ))}
